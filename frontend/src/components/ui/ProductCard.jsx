@@ -45,47 +45,55 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h2>Update Product</h2>
-              <button onClick={() => setIsModalOpen(false)}>&times;</button>
-            </div>
-            <div className="modal-body">
-              <input
-                type="text"
-                placeholder="Product Name"
-                name="name"
-                value={updatedProduct.name}
-                onChange={(e) => setUpdatedProduct({ ...updatedProduct, name: e.target.value })}
-              />
-              <input
-                type="number"
-                placeholder="Price"
-                name="price"
-                value={updatedProduct.price}
-                onChange={(e) => setUpdatedProduct({ ...updatedProduct, price: e.target.value })}
-              />
-              <input
-                type="text"
-                placeholder="Image URL"
-                name="image"
-                value={updatedProduct.image}
-                onChange={(e) => setUpdatedProduct({ ...updatedProduct, image: e.target.value })}
-              />
-            </div>
-            <div className="modal-footer">
-              <button className="btn-primary" onClick={() => handleUpdateProduct(product._id, updatedProduct)}>
-                Update
-              </button>
-              <button className="btn-secondary" onClick={() => setIsModalOpen(false)}>
-                Cancel
-              </button>
-            </div>
-          </div>
+     {isModalOpen && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h2>Update Product</h2>
+        <button className="modal-close-btn" onClick={() => setIsModalOpen(false)}>
+          &times;
+        </button>
+      </div>
+      <div className="modal-body">
+        <div className="form-group">
+          <label>Product Name</label>
+          <input
+            type="text"
+            className="modal-input"
+            value={updatedProduct.name}
+            onChange={(e) => setUpdatedProduct({ ...updatedProduct, name: e.target.value })}
+          />
         </div>
-      )}
+        <div className="form-group">
+          <label>Price</label>
+          <input
+            type="number"
+            className="modal-input"
+            value={updatedProduct.price}
+            onChange={(e) => setUpdatedProduct({ ...updatedProduct, price: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label>Image URL</label>
+          <input
+            type="text"
+            className="modal-input"
+            value={updatedProduct.image}
+            onChange={(e) => setUpdatedProduct({ ...updatedProduct, image: e.target.value })}
+          />
+        </div>
+      </div>
+      <div className="modal-footer">
+        <button className="btn-secondary" onClick={() => setIsModalOpen(false)}>
+          Cancel
+        </button>
+        <button className="btn-primary" onClick={() => handleUpdateProduct(product._id, updatedProduct)}>
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     </>
   );
 };
