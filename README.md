@@ -146,7 +146,6 @@ product-app/
 
 ---
 
-
 Thank you for checking out my project! If you have any feedback,new ideas,issues or suggestions, feel free to reach out. 😊
 ```
 
